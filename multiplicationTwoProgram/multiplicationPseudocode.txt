@@ -1,0 +1,67 @@
+STRING multiplicationFunction(string pNum, string pFactor, int pSize)
+INT additionFunction(string pNumA, int m)
+INT toInt(string pString)
+
+INT main
+    STRING num1, factor
+    INT size
+
+    USERINPUT num1
+    USERINPUT factor
+
+    PRINT num1 * factor = multiplicationFunction(num1, factor, num1.size())
+
+STRING multiplicationFunction
+    INT product is equal to 0
+    STRING multiplicand is equal to pNum
+    STRING factor is equal ro pFactor
+    BOOL negative is equal to false
+
+    IF pNum is equal to "0" or pFactor is equal to "0"
+        RETURN "0"
+    ELSE IF pNum is negative or pFactor is negative
+        set negative equal to true
+        IF pNum is negative
+            set pNum positive
+        ELSE
+            set pFactor positive
+    ELSE IF pNum is negative and pFactor is negative
+        set negative equal to false
+        set pNum positive
+        set pFactor positive
+
+    FOR countup to factor
+        product equal to product plus additionFunction(multiplicand, multiplicand.size())
+    
+    IF negative is true
+        set product equal to product times -1
+    
+    RETURN to_string(product)
+
+INT additionFunction
+    INT carry is equal to 0
+    STRING answer is equal to ""
+    INT value
+
+    FOR every character in pNumA
+        INT total is equal to 0
+        total equal to character plus carry
+
+        IF total is greater than or equal to 10
+            subtract 10 from total
+            set carry equal to 1
+        ELSE
+            set carry equal to 0
+        
+        insert total into leftmost position of answer
+    insert carry into leftmost position of answer
+
+    RETURN toInt(answer)
+
+int toInt
+    INT final is equal to 0
+
+    for every character in pString
+        final equal to final times 10 plus character
+
+    RETURN final

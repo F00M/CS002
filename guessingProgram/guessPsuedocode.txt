@@ -1,0 +1,47 @@
+INTEGER totalTries equal to 8
+
+FUNCTION correctDigits(STRING pCode, STRING pGuess)
+FUNCTION sumOfCorrectDigits(STRING pCode, STRING pGuess)
+
+FUNCTION main()
+    STRING secretCode
+    STRING userGuess
+    INTEGER tries is equal to 1
+
+    USERINPUT secretCode
+
+    WHILE tries is less than totalTries
+        USERINPUT guess
+
+        IF secretCode is not equal to userGuess
+            PRINT "you are wrong"
+            PRINT # of digits guessed
+            PRINT sum of digits guessed
+        ELSE
+            PRINT "congratulations"
+            BREAK
+
+        add 1 to tries
+
+    IF tries is equal to 9
+        PRINT "you lost"
+
+    RETURN 0
+
+FUNCTION correctDigits(STRING pCode, STRING pGuess)
+    INTEGER digits equal to 0;
+
+    FOR length = 0 to length of secretCode
+        IF secretCode is equal to userGuess
+            add 1 to digits
+    
+    RETURN digits
+
+FUNCTION sumOfCorrectDigits(STRING pCode, STRING pGuess)
+    INTEGER sum equal to 0
+
+    FOR length = 0 to length of secretCode
+        IF secretCode is equal to userGuess
+            add the correctly guessed digit to sum
+    
+    RETURN sum

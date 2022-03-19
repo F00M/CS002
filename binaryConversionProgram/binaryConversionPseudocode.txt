@@ -1,0 +1,44 @@
+FUNCTION binaryAdd(STRING pBinNum1, STRING pBinNum2)
+FUNCTION binaryToDecimal(STRING pBinNum1)
+FUNCTION decimalToBinary(INT pNum1)
+
+FUNCTION main()
+    STRING bNum1
+    STRING bNum2
+
+    USERINPUT bNum1
+    USERINPUT bNum2
+
+    PRINT bNum1 + bNum2 = binaryAdd(bNum1, bNum2)
+
+STRING binaryAdd
+    STRING bNum1 is equal to pBinNum1
+    STRING bNum2 is equal to pBinNum2
+    INT num1 is equal to binaryToDecimal(bNum1)
+    INT num2 is equal to binaryToDecimal(bNum2)
+    INT answer
+
+    answer is equal to num1 plus num2
+
+    RETURN decimalToBinary(answer)
+
+INT binaryToDecimal
+    INT decimal is equal to 0
+
+    FOR each character of pBinNum1
+        decimal equal to decimal plus character times two to the power of the character position
+
+    RETURN decimal
+
+STRING decimalToBinary
+    STRING binary is equal to ""
+    INT quotient is equal to pNum1
+    INT remainder
+
+    DO
+        remainder equal to quotient modulo 2
+        quotient equal to quotient divided by 2
+        insert remainder into leftmost position of binary
+    WHILE quotient is greater than 0
+
+    RETURN binary

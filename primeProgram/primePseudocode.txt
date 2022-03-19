@@ -1,0 +1,32 @@
+FUNCTION isPrime(int x)
+    IF x is less than equal to 1
+        return FALSE
+    
+    FOR count 2 to value of x
+        IF remainder of x divided by count is equal to 0
+            return FALSE
+    
+    return TRUE
+
+FUNCTION main()
+    SET gapNumber equal to 0
+    USERINPUT range of numbers as INT num1, num2
+
+    FOR each number from num1 to num2
+        call function isPrime(number)
+        IF function returns TRUE
+            PRINT number
+
+            IF number is equal to num1
+                set INT temp1 equal to number
+            ELSE
+                set INT temp2 equal to number
+
+                IF temp2 minus temp1 is greater than gapNumber
+                    set gapNumber equal to temp2 minus temp1
+                    set INT gapNumberCount equal to 0
+                
+                set temp1 equal to temp2
+                increase gapNumberCount by 1
+    
+    PRINT gapNumber and gapNumberCount

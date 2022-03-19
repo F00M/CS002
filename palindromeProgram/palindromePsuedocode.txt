@@ -1,0 +1,23 @@
+FUNCTION isPalindrome(STRING x)
+    make msgTemp = x
+
+    FOR each character of STRING x
+        IF character is a space
+            remove space from msgTemp
+        
+    FOR half of the characters of STRING x
+        IF the front character is equal to the end character
+            remove end character
+            continue
+        ELSE
+            return FALSE
+    return TRUE
+
+FUNCTION main()
+    USERINPUT msg
+
+    call FUNCTION isPalindrome(msg)
+    IF isPalindrome(msg) returns TRUE
+        PRINT "is a palindrome"
+    ELSE
+        PRINT "is NOT a palindrome"

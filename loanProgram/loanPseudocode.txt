@@ -1,0 +1,30 @@
+
+set interestRate equal to 0.18
+FUNCTION main()
+    set monthlyInterestRate equal to interestRate divided by 12
+    set monthlyPayment equal to 50
+    set month equal to 0
+
+    USERINPUT startBalance
+    set endBalance equal to startBalance
+
+    while endBalance is greater than 0
+        increase month by 1
+        set interest equal to startBalance multiplied by monthlyInterestRate
+        set principle equal to monthlyPayment minus interest
+
+        IF startBalance minus principle is less than 0
+            set principle equal to startBalance
+            set endBalance equal to 0.00
+        ELSE
+            set endBalance equal to startBalance minus principle
+        
+        PRINT month
+        PRINT startBalance
+        PRINT interest
+        PRINT principle
+        PRINT endBalance
+
+        set startBalance equal to endBalance
+    
+    PRINT total months needed to pay off rent

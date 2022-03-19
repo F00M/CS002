@@ -1,0 +1,49 @@
+STRING addFunction(STRING pNumA, STRING pNumB, int m)
+INT toInt(STRING pString)
+
+INT main
+    STRING num1, num2
+
+    DO
+        USERINPUT num1
+        USERINPUT num2
+    WHILE num1 is less than 0 or num2 is less than 0
+
+    IF the size of num1 is not equal to the size of num2
+        if the size of num1 is greater than the size of num2
+            resize num1 to the size of num2
+            PRINT resize
+        ELSE
+            resize num2 to the size of num1
+            PRINT resize
+    
+    PRINT num1 + num2 = addFunction(num1, num2, num1.size())
+
+    RETURN 0
+
+STRING addFunction
+    INT carry is equal to 0
+    STRING answer is equal to ""
+
+    FOR every character in pNumA
+        INT total is equal to 0
+        total equal to the character of pNumA plus the character of pNumB plus carry
+
+        IF total is greater than or equal to 10
+            subtract 10 from total
+            set carry equal to 1
+        ELSE
+            set carry equal to 0
+        
+        insert total into leftmost position of answer
+    insert carry into leftmost position of answer
+
+    RETURN answer
+
+int toInt
+    INT final is equal to 0
+
+    for every character in pString
+        final equal to final times 10 plus character
+
+    RETURN final
