@@ -9,7 +9,6 @@ using namespace std;
 string addDecimalFunction(string pDecA, string pDecB, int pSize); //Addition (decimal) function from Lab 05
 string addBinaryFunction(string pBinA, string pBinB, int pSize); //Addition (binar) function
 bool ifBinary(string pNumA); //Checks if input is binary or decimal
-int toInt(string pString); //Accepts string and returns integer
 int binaryToDecimal(string pBinNum1); //Accepts binary number and returns decimal equivalent
 string decimalToBinary(int pNum1); //Accepts decimal number and returns binary equivalent
 
@@ -23,7 +22,7 @@ int main() {
         printf("Second Number: ");
         getline(cin, num2);
     }
-    while (toInt(num1) < 0 && toInt(num2) < 0);
+    while (stol(num1) < 0 || stol(num2) < 0);
 
     if (num1.size() != num2.size()) {
         if (num1.size() > num2.size()) {
@@ -38,14 +37,14 @@ int main() {
 
     if (ifBinary(num1)) {
         answer = addBinaryFunction(num1, num2, num1.size());
-        printf("%s + %s = ...\n", num1.c_str(), num2.c_str());
+        printf("\n%s + %s = ...\n", num1.c_str(), num2.c_str());
         printf("Binary answer: %s\n", answer.c_str());
         printf("Decimal answer: %i\n", binaryToDecimal(answer));     
     }
     else {
         answer = addDecimalFunction(num1, num2, num1.size());
-        printf("%s + %s = ...\n", num1.c_str(), num2.c_str());
-        printf("Binary answer: %s\n", decimalToBinary(toInt(answer)).c_str());
+        printf("\n%s + %s = ...\n", num1.c_str(), num2.c_str());
+        printf("Binary answer: %s\n", decimalToBinary(stol(answer)).c_str());
         printf("Decimal answer: %s\n", answer.c_str());
     }
 
@@ -110,22 +109,12 @@ string addBinaryFunction(string pBinA, string pBinB, int pSize) {
 bool ifBinary(string pNumA) {
     for (int i = 0; i < pNumA.length(); i++) {
         if (((int)pNumA[i] != '0') && ((int)pNumA[i] != '1')) {
-            printf("%i | false!\n", (int)pNumA[i]);
+            // printf("%i | false!\n", (int)pNumA[i]);
             return false;
         }
     }
 
     return true;
-}
-
-int toInt(string pString) {
-    int final = 0;
-
-    for (int i = 0; i < pString.size(); i++) {
-        final = (final * 10) + (pString[i] - '0');
-    }
-    
-    return final;
 }
 
 int binaryToDecimal(string pBinNum1) {
