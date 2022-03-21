@@ -1,0 +1,101 @@
+STRING addDecimalFunction(STRING pDecA, STRING pDecB, INT pSize)
+STRING addBinaryFunction(STRING pBinA, STRING pBinB, INT pSize)
+bool ifBinary(STRING pNumA)
+INT binaryToDecimal(STRING pBinNum1)
+STRING decimalToBinary(INT pNum1)
+
+INT main
+    STRING num1, num2, answer
+
+    do
+        USERINPUT num1
+        USERINPUT num2
+    while num1 or num2 are less than 0
+
+    IF the size of num1 and num2 are not equal
+        IF the size of num1 is greater than num2
+            resize num1 to size of num2
+        ELSE
+            resize num2 to size of num1
+
+    IF num1 is a binary number
+        set answer equal to addBinaryFunction
+        PRINT answer
+        PRINT decimal version of answer
+    ELSE
+        set answer equal to addDecimalFunction
+        PRINT binary version of answer
+        PRINT answer
+
+    RETURN 0
+
+STRING addDecimalFunction
+    INT carry equal to 0
+    STRING answer equal to ""
+    FOR every charcter in pDecA
+        INT total equal to 0
+        total equal to char of pNUmA plus the char of pNumB plus carry
+
+        IF total is greater than or equal to 10
+            subtract 10 from total
+            set carry equal to 1
+        ELSE
+            set carry equal to 0
+        
+        insert total into leftmost position of answer
+    insert carry into leftmost position of answer
+
+    RETURN answer
+
+STRING addBinaryFunction
+    INT carry equal to 0
+    STRING answer equal to ""
+
+    FOR every character in pBinA
+        INT total equal to 0
+        total equal to char of pBinA plus char of pBinB
+
+        IF total is equal to 2 AND carry is equal to 1
+            total equal to 1
+            carry equal to 1
+        ELSE IF total is equal to 2 AND carry is equal to 0 OR total is equal to 1 AND carry is equal to 1
+            total equal to 0
+            carry equal to 1
+        ELSE IF total is equal to 0 AND carry is equal to 1
+            total equal to 1
+            carry equal to 0
+        ELSE
+            carry equal to 0
+        
+        insert total into leftmost position of answer
+    insert carry into leftmost position of answer
+
+    return answer
+
+BOOL ifBinary
+    FOR every char in pNumA
+        IF char of pNumA is not equal to 0 and 1
+            RETURN false
+
+    RETURN true
+
+INT binaryToDecimal
+    INT decimal is equal to 0
+
+    FOR each character of pBinNum1
+        decimal equal to decimal plus character times two to the power of the character position
+
+    RETURN decimal
+
+INT decimalToBinary
+    STRING binary is equal to ""
+    INT quotient is equal to pNum1
+    INT remainder
+
+    DO
+        remainder equal to quotient modulo 2
+        quotient equal to quotient divided by 2
+        insert remainder into leftmost position of binary
+    WHILE quotient is greater than 0
+
+    RETURN binary

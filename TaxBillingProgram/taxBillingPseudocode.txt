@@ -1,0 +1,56 @@
+DOUBLE billingAmount(DOUBLE pRate, INT pTime, BOOL pLowIncome)
+BOOL isLowIncome(STRING pYearly)
+INT toMinutes(STRING pTotalTime)
+
+DOUBLE lowIncomeServiceRate equal to 0.40
+DOUBLE serviceRate equal to 0.70
+
+INT main
+    STRING hourlyRate, consultingTime, yearlyIncome
+
+    USERINPUT yearlyIncome
+    USERINPUT hourlyRate
+    USERINPUT consultingTime
+
+    PRINT billingAmount
+
+DOUBLE billingAmount
+    INT totalMinutes equal to pTime
+
+    IF pLowIncome is true
+        subtract 30 from totalMinutes
+        
+        IF totalMinutes is less than equal to 0
+            RETURN 0.00
+        ELSE
+            RETURN pRate * lowIncomeServiceRate * ((double)totalMinutes / 60)
+    ELSE
+        subtract 20 from totalMinutes
+        IF totalMinutes is less than equal to 0
+            RETURN 0.00
+        ELSE
+            RETURN pRate * serviceRate * ((double)totalMinutes / 60)
+    
+    RETURN 0
+
+INT toMinutes
+    STRING hour equal to ""
+    STRING minutes equal to ""
+    INT position, totalMinutes
+
+    position equal to position of ':' in string pTotalTime
+
+    FOR every char in pTotalTime
+        IF count is less than position
+            append char to hour
+        ELSE
+            append char to minutes
+    erase ':' from string minutes
+
+    RETURN (hour times 60) plus minutes
+
+BOOL isLowIncome
+    IF pYearly is less than equal to 2500
+        RETURN true
+    ELSE
+        RETURN false
