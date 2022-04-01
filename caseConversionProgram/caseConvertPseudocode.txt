@@ -1,0 +1,22 @@
+VOID convert(STRING pWord);
+VOID convert(STRING pWord, INT pLength);
+
+INT main()
+    STRING input
+    USERINPUT input
+    call function convert(input)
+
+VOID convert(STRING pWord)
+    FOR length of pWord
+        IF character in pWord is lowercase
+            change character to uppercase
+    
+    print uppercase version of pWord
+    call function convert(input, length of pWord)
+
+VOID convert(STRING pWord, INT pLength)
+    FOR length of pWord
+        IF character in pWord is uppercase
+            change character to lowercase
+    
+    print lowercase version of pWord

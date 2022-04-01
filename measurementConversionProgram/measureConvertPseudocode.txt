@@ -1,0 +1,42 @@
+VOID convert(INT pFeet, INT pInches, DOUBLE& pMeters)
+VOID convert(DOUBLE pMeters, INT& pFeet, DOUBLE& pInches)
+
+INT main()
+    INT feet, choice;
+    DOUBLE inches, meters;
+
+    WHILE true
+        USERINPUT choice of conversion
+
+        IF user chooses conversion of feet to meters
+            USERINPUT feet
+            USERINPUT inches
+
+            convert(feet, inches, meters)
+            print conversion
+
+            ask user if they want to recalculate
+        
+        IF user chooses conversion of meters to feet
+            USERINPUT meters
+
+            convert(meters, feet, inches)
+            print conversion
+
+            ask user if they want to recalculate
+
+        IF no option chosen
+            print invalid statement
+    
+    ask user if they want to choose another conversion
+
+VOID convert(int pFeet, int pInches, DOUBLE& pMeters)
+    DOUBLE inches
+    inches equal to pInches divided by 16
+    pMeters equal to total feet divided by 3.28084
+
+VOID convert(DOUBLE pMeters, INT& pFeet, DOUBLE& pInches)
+    DOUBLE inches
+    inches equal to pMeters times 3.28084 times 12
+    pFeet equal to inches divided by 12
+    pInches equal to inches divided 12 subtracted by pFeet and multiplied by 12a
