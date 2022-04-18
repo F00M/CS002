@@ -1,0 +1,63 @@
+set CONST INT MAX_MONTHS equal to 12
+
+VOID getData(INT pArray[][2], INT pMonths)
+INT avgMonthHigh(INT pArray[][2], INT pMonths)
+INT avgMonthLow(INT pArray[][2], INT pMonths)
+INT indexOfHighTemp(INT pArray[][2], INT pMonths)
+INT indexOfLowTemp(INT pArray[][2], INT pMonths)
+
+INT main()
+    INT hiLowArray[MAX_MONTHS][2]
+    INT indexOfHigh, inDexOfLow
+
+    getData(hiLowArray, MAX_MONTHS)
+
+    PRINT avgMonthHigh(hiLowArray, MAX_MONTHS)
+    PRINT avgMonthLow(hiLowArray, MAX_MONTHS)
+
+    set indexOfHigh equal to indexOfHighTemp(hiLowArray, MAX_MONTHS)
+    set indexOfLow equal to indexOfLowTemp(hiLowArray, MAX_MONTHS)
+
+    PRINT hiLowArray[indexOfHigh][0]
+    PRINT hiLowArray[indexOfLow][1]
+
+VOID getData(INT pArray[][2], INT pMonths)
+    FOR every count of pMonths
+        USERINPUT pArray[iteration][0]
+        USERINPUT pArray[iteration][1]
+
+INT avgMonthHigh(INT pArray[][2], INT pMonths)
+    INT sum equal to 0
+    FOR every count of pMonths
+        set sum equal to sum plus pArray[iteration][0]
+
+    RETURN sum divided by pMonths
+
+INT avgMonthLow(INT pArray[][2], INT pMonths)
+    INT sum equal to 0
+    FOR every count of pMonths
+        set sum equal to sum plus pArray[iteration][1]
+    
+    RETURN sum divided by pMonths
+
+INT indexOfHighTemp(INT pArray[][2], INT pMonths)
+    INT highTemp equal to pArray[0][0]
+    INT index equal to 0
+
+    FOR every count of pMonths
+        IF pArray[interation][0] is greater than highTemp
+            set highTemp equal to pArray[i][0]
+            set index equal to iteration
+
+    RETURN index
+
+INT indexOfLowTemp(INT pArray[][2], INT pMonths)
+    INT lowTemp equal to pArray[0][1]
+    INT index equal to 0
+
+    FOR every count of pMonths
+        IF pArray is less than lowTemp
+            set lowTemp equal to pArray[iteration][1]
+            set index equal to iteration
+
+    RETURN index

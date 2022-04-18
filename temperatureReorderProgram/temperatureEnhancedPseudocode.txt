@@ -1,0 +1,78 @@
+set CONT INT MAX_MONTHS equal to 12
+
+VOID getData(TEMPERATURE pArray[][MAX_MONTHS], INT pYears, INT pMonths)
+INT avgYearHigh(TEMPERATURE pArray[][MAX_MONTHS], INT pYears, INT pMonths)
+INT avgYearLow(TEMPERATURE pArray[][MAX_MONTHS], INT pYears, INT pMonths)
+INT indexOfHighTemp(TEMPERATURE pArray[][MAX_MONTHS], INT pYears, INT pMonths, INT& pIndex)
+INT indexOfLowTemp(TEMPERATURE pArray[][MAX_MONTHS], INT pYears, INT pMonths, INT& pIndex)
+
+STRUCT temperature
+    INT high
+    INT low
+
+INT main()
+    INT years, highIndex, lowIndex, highIndexMonth, lowIndexMonth
+
+    USERINPUT years
+    temperature lowHighArray[years][MAX_MONTHS]
+
+    getData(lowHighArray, years, MAX_MONTHS)
+
+    PRINT avgYearHigh(lowHighArray, years, MAX_MONTHS)
+    PRINT avgYearLow(lowHighArray, years, MAX_MONTHS)
+
+    set highIndex equal to indexOfHighTemp(lowHighArray, years, MAX_MONTHS, highIndexMonth)
+    set lowIndex equal to indexOfLowTemp(lowHighArray, years, MAX_MONTHS, lowIndexMonth)
+
+    PRINT lowHighArray[highIndex][highIndexMonth].high
+    PRINT lowHighArray[lowIndex][lowIndexMonth].low
+
+VOID getData(TEMPERATURE pArray[][MAX_MONTHS], INT pYears, INT pMonths)
+    FOR every count of pYears
+        FOR every count of pMonths
+            USERINPUT pArray[iteration][2nd iteration]
+            USERINPUT pArray[iteration][2nd iteration]
+
+INT avgYearHigh(TEMPERATURE pArray[][MAX_MONTHS], INT pYears, INT pMonths)
+    INT sum equal to 0
+
+    FOR every count of pYears
+        FOR every count of pMonths
+            set sum equal to pArray[iteration][2nd iteration].high
+
+    RETURN sum divided by pYears
+
+INT avgYearLow(TEMPERATURE pArray[][MAX_MONTHS], INT pYears, INT pMonths)
+    INT sum equal to 0
+
+    FOR every count of pYears
+        For every count of pMonths
+            set sum equal to pArray[iteration][2nd iteration].low
+
+    RETURN sum divided by pYears
+
+INT indexOfHighTemp(TEMPERATURE pArray[][MAX_MONTHS], INT pYears, INT pMonths, INT& pIndex)
+    INT highTemp equal to pArray[0][0].high
+    INT index
+
+    FOR every count of pYears
+        FOR every count of pMonths
+            IF pArray[iteration][2nd iteration].high is greater than highTemp
+                set highTemp equal to pArray[iteration][2nd iteration].high
+                set index equal to iteration
+                set pIndex equal to 2nd iteration
+
+    RETURN index
+
+INT indexOfLowTemp(TEMPERATURE pArray[][MAX_MONTHS], INT pYears, INT pMonths, INT& pIndex)
+    INT lowTemp equal to pArray[0][0].low
+    INT index
+
+    FOR every count of pYears
+        FOR every count of pMonths
+            IF pArray[iteration][2nd iteration].low is less than lowTemp
+                set lowTemp equal to pArray[iteration][2nd iteration].low
+                set index equal to iteration
+                set pIndex equal to 2nd iteration
+
+    RETURN index

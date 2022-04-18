@@ -1,0 +1,65 @@
+VOID driver(INT pSmallNumber, INT pTestSize, INT pMax, DOUBLE pTime[])
+VOID fillArray(INT pArray[], INT pSize)
+INT smallest(INT pArray[], INT pSize, INT& pIndex)
+DOUBLE avgTime(DOUBLE pRunTimes[], INT pSize)
+VOID printArray(DOUBLE pArray[][2], INT pSize)
+
+INT main()
+    INT P, N, M, C, smallestNumber
+
+    USERINPUT amount of times to execute program
+    DOUBLE times[P][2]
+
+    for every count of P
+        DO
+            USERINPUT N
+            USERINPUT M
+        WHILE N and M are less than 0
+        DOUBLE runningTime[M]
+
+        driver(smallestNumber, N, M, runningTime)
+
+        PRINT average running time using avgTime(runningTime, M)
+        set times[interation][0] equal to N
+        set times[interation][1] equal to avgTime(runningTime, M)
+
+    printArray(times, P)
+
+    RETURN 0
+
+VOID driver(INT pSmallNumber, INT pTestSize, INT pMax, DOUBLE pTime[])
+    FOR every count of pMax
+        INT startTime, endTime, array[pTestSize]
+        INT pos equal to -1
+
+        set startTime equal to clock()
+        fill array using fillArray(array, pTestSize)
+        set pSmallNumber equal to smallest(array, pTestSize, pos)
+        set endTime equal to clock()
+        set pTime[interation] equal to endTime subtracted by startTime
+
+VOID fillArray(INT pArray[], INT pSize)
+    FOR every count of pSize
+        set pArray[interation] equal to (rand() % 100) + 1
+
+INT smallest(INT pArray[], INT pSize, INT& pIndex)
+    INT small equal to pArray[0]
+    set pIndex equal to 0
+
+    FOR every count of pSize
+        IF pArray[iteration] is less than small
+            set small equal to pArray[interation]
+            set pIndex equal to iteration
+    
+    RETURN small
+
+DOUBLE avgTime(DOUBLE pRunTimes[], INT pSize)
+    DOUBLe sum equal to 0
+    FOR every count of pSize
+        set sum equal to sum plus pRunTimes[iteration]
+    
+    RETURN sum divided by pSize
+
+VOID printArray(DOUBLE pArray[][2], INT pSize)
+    FOR every count of pSize
+        PRINT N and average time
