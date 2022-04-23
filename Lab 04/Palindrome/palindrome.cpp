@@ -1,4 +1,4 @@
-// Lab 4 - Palindrome
+// Lab 04 - #3
 
 #include <iostream>
 #include <string>

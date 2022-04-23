@@ -1,4 +1,4 @@
-// Lab 4 - Primes
+// Lab 04 - #2
 
 #include <iostream>
 

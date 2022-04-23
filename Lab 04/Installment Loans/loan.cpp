@@ -1,4 +1,4 @@
-// Lab 4 - Installment Loan Time
+// Lab 04 - #1
 
 #include <iostream>
 #include <string>
