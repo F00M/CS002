@@ -1,4 +1,4 @@
-// Logical Statement Group Discussion: Temperature
+// Group Discussion - Logical Statement
 
 #include <iostream>
 
