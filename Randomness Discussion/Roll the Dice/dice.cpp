@@ -1,4 +1,4 @@
-// Group Discussion - Randomness #2
+// Group Discussion - Randomness
 
 #include <iostream>
 #include <math.h>
