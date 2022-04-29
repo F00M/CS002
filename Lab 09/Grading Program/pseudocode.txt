@@ -1,0 +1,121 @@
+CONST INT MAX_EXAMS = 7;
+CONST INT MAX_QUIZZES = 5;
+CONST INT MAX_FINALS = 1;
+CONST INT MAX_MIDTERMS = 1;
+CONST INT MAX_QUIZ_SCORE = 50;
+CONST INT MAX_MIDTERM_SCORE = 100;
+CONST INT MAX_FINAL_SCORE = 100;
+CONST DOUBLE FINAL_WEIGHT = 0.35;
+CONST DOUBLE MIDTERM_WEIGHT = 0.25;
+CONST DOUBLE QUIZ_WEIGHT = 0.40;
+
+STRUCT Student
+    declare name
+    declare quizScore[MAX_EXAMS]
+    declare quizPercentage
+    declare midtermScore[MAX_EXAMS]
+    declare midtermPercentage
+    declare finalScore[MAX_EXAMS]
+    declare finalPercentage
+
+STRUCT Classroom
+    declare name
+    declare students[MAX_STUDENTS]
+
+declare function InitScore(CLASSROOM& pClassroom)
+declare function getScore(CLASSROOM& pClassroom, INT pStudentIndex, STRING pType)
+declare function calculateScore(CLASSROOM& pClassroom, INT pStudentIndex)
+declare function calculateWeightedScore(CLASSROOM& pClassroom, INT pStudentIndex)
+declare function getLetterGrade(DOUBLE pScore)
+declare function printStudent(CLASSROOM& pClassroom, INT pMaxStudents)
+
+INT main
+    declare Class
+    declare and set numOfStudents equal to 0
+
+    initialize lists using InitScore function
+
+    prompt user to enter name of class and store in Class.name
+
+    WHILE numOfStudents is less than MAX_STUDENTS
+        declare name
+        prompt user to enter name of student and store in name
+
+        IF user entered "/"
+            break loop
+        
+        set Class.students[numOfStudents] equal to name
+
+        get quiz scores using getScore function
+        get midterm score using getScore function
+        get final score using getScore function
+
+        increase numOfStudents count by one
+    
+    print student scores using printStudent function
+
+    RETURN 0
+
+VOID InitScore
+    FOR every count of MAX_STUDENTS
+        FOR every count of MAX_EXAMS
+            set pClassroom.students[iteration].quizScore[iteration 2] equal to 0
+            set pClassroom.students[iteration].midetermScore[iteration 2] equal to 0
+            set pClassroom.students[iteration].finalScore[iteration 2] equal to 0
+
+VOID getScore
+    IF type of exam is quiz
+        FOR every count of MAX_QUIZZES
+            prompt user to enter quiz score
+
+    ELSE IF type of exam is midterm
+        FOR every count of MAX_MIDTERMS
+            prompt user to enter midterm score
+    
+    ELSE
+        FOR every count of MAX_FINALS
+            prompt user to enter final score
+
+VOID calculateScore
+    declare and set quizTotal equal to 0
+    declare and set midtermTotal equal to 0
+    declare and set finalTotal equal to 0
+
+    FOR every count of MAX_QUIZZES
+        add pClassroom.students[pStudentIndex].quizScore[iteration] to quizTotal
+    
+    FOR every count of MAX_MIDTERMS
+        add pClassroom.students[pStudentIndex].midtermScore[i] to midtermTotal
+
+    FOR every count of MAX_FINALS
+        add pClassroom.students[pStudentIndex].finalScore[i] to finalTotal
+
+    set pClassroom.students[pStudentIndex].quizPercentage equal to (double)quizTotal / (MAX_QUIZ_SCORE * MAX_QUIZZES)
+    set pClassroom.students[pStudentIndex].midtermPercentage equal to (double)midtermTotal / (MAX_MIDTERM_SCORE * MAX_MIDTERMS)
+    set pClassroom.students[pStudentIndex].finalPercentage equal to (double)finalTotal / (MAX_FINAL_SCORE * MAX_FINALS)
+
+DOUBLE calculateWeightedScore
+    declare and set percentage equal to 0
+
+    add pClassroom.students[pStudentIndex].quizPercentage * QUIZ_WEIGHT to percentage
+    add pClassroom.students[pStudentIndex].midtermPercentage * MIDTERM_WEIGHT to percentage
+    add pClassroom.students[pStudentIndex].finalPercentage * FINAL_WEIGHT to percentage
+
+    RETURN percentage times 100
+
+STRING getLetterGrade
+    IF score is greater than or equal to 90
+        RETURN "A"
+    ELSE IF score is greater than or equal to 80
+        RETURN "B"
+    ELSE IF score is greater than or equal to 70
+        RETURN "C"
+    ELSE IF score is greater than or equal to 60
+        RETURN "D"
+    ELSE
+        RETURN "F"
+
+VOID printStudent
+    FOR every count of pMaxStudents
+        PRINT student name, quiz percentage, midterm percentage, finalPercentage, and overall percentage
+    
