@@ -6,6 +6,11 @@
         "iosfwd": "cpp",
         "algorithm": "cpp",
         "complex": "cpp",
-        "istream": "cpp"
+        "istream": "cpp",
+        "typeinfo": "cpp",
+        "__locale": "cpp",
+        "filesystem": "cpp",
+        "locale": "cpp",
+        "iomanip": "cpp"
     }
 }
