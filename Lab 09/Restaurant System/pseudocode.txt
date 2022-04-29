@@ -1,0 +1,19 @@
+declare and set CONST INT NUM_OF_ITEMS equal to 8
+
+INT main
+    declare menuList[NUM_OF_ITEMS]
+    declare choiceList[NUM_OF_ITEMS]
+    declare and set choiceListLength equal to 0
+
+    open file "breakfasts.txt" and put contents in inFile
+
+    IF inFile cannot be opened
+        end program
+    
+    use getData function to fill lists with menu items and prices
+
+    display menu to user with showMenu function
+    prompt user to select using makeSelection function
+    display receipt using printCheck function
+
+    RETURN 0
