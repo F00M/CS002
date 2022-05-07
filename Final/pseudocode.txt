@@ -1,0 +1,71 @@
+set ROWS equal to 5
+set COLS equal to 5
+
+initialize class Array
+    with public members:
+        setRow(int pRow) function
+        getRow() function
+        setCol(int pCol) function
+        getCol() function
+        setSearchValue() function
+        getSearchValue() function
+        digits[ROWS][COLS] array
+    private members:
+        int row equal to 0
+        int col equal to 0
+        double searchValue equal to 0
+
+initialize initArray(double pArray[][COLS]) function
+initialize searchArray(double pArray[][COLS], double pValue, Array& pClass) function
+
+int main
+    initialize rand() with srand(time(NULL))
+    initialize Array array
+    call initArray(array.digits) function
+
+    while true
+        do
+            call array.setSearchValue() function
+        while searchValue is less than one or greater than 100
+
+        if searchArray function returns true
+            print the found value and the rows and columns associated with it
+        else
+            print the found value and -1 as the rows/columns
+        
+        ask user if they want to search another number
+
+void initArray
+    for every iteration i of ROWS
+        for every iteration j of COLS
+            set pArray[i][j] equal to random number between 1 and 100
+
+bool searchArray
+    for every iteration i of ROWS
+        for every iteration j of COLS
+            if pArray[i][j] is equal to pValue
+                call setRow(i) function
+                call setCol(j) function
+                return true
+
+    call setRow(-1) function
+    call setCol(-1) function
+    return false
+
+void Array::setRow
+    set row equal to pRow
+
+void Array::setCol
+    set col equal to pCol
+
+void Array::setSearchValue
+    ask user to input number between 1 and 100
+
+int Array::getRow
+    return row
+
+int Array::getCol()
+    return col
+
+int Array::getSearchValue()
+    return searchValue
